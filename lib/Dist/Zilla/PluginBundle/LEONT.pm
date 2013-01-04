@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::LEONT;
 {
-  $Dist::Zilla::PluginBundle::LEONT::VERSION = '0.001';
+  $Dist::Zilla::PluginBundle::LEONT::VERSION = '0.006';
 }
 use strict;
 use warnings;
@@ -90,7 +90,7 @@ Dist::Zilla::PluginBundle::LEONT - LEONT's dzil bundle
 
 =head1 VERSION
 
-version 0.001
+version 0.006
 
 =head1 DESCRIPTION
 
