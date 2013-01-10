@@ -1,12 +1,12 @@
 package Dist::Zilla::PluginBundle::LEONT;
 {
-  $Dist::Zilla::PluginBundle::LEONT::VERSION = '0.006';
+  $Dist::Zilla::PluginBundle::LEONT::VERSION = '0.007';
 }
 use strict;
 use warnings;
 
 use Moose;
-with qw/Dist::Zilla::Role::PluginBundle::Easy/;# Dist::Zilla::Role::PluginBundle::PluginRemover Dist::Zilla::Role::PluginBundle::Config::Slicer/;
+with qw/Dist::Zilla::Role::PluginBundle::Easy Dist::Zilla::Role::PluginBundle::PluginRemover Dist::Zilla::Role::PluginBundle::Config::Slicer/;
 
 has install_tool => (
 	is      => 'ro',
@@ -61,6 +61,7 @@ my %tools = (
 	mb   => [ 'ModuleBuild' ],
 	mbc  => [ qw/ModuleBuild::Custom Meta::Dynamic::Config/ ],
 	mbt  => [ 'ModuleBuildTiny' ],
+	self => [ 'BuildSelf' ]
 );
 
 sub configure {
@@ -90,7 +91,7 @@ Dist::Zilla::PluginBundle::LEONT - LEONT's dzil bundle
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
 =head1 DESCRIPTION
 

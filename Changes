@@ -1,5 +1,9 @@
 Revision history for Dist-Zilla-PluginBundle-LEONT
 
+0.007     2013-01-10 17:45:44 Europe/Amsterdam
+          Add Config::Slicer and PluginRemover bundle roles
+          Added BuildSelf to install_tool options
+
 0.006     2013-01-04 01:36:27 Europe/Amsterdam
           Rerelease as 0.006, to satisfy PAUSE
 
