@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::LEONT;
 {
-  $Dist::Zilla::PluginBundle::LEONT::VERSION = '0.007';
+  $Dist::Zilla::PluginBundle::LEONT::VERSION = '0.008';
 }
 use strict;
 use warnings;
@@ -34,7 +34,7 @@ ConfirmRelease
 UploadToCPAN
 /;
 
-my @plugins = qw/
+my @plugins_early = qw/
 AutoPrereqs
 MetaJSON
 Repository
@@ -42,6 +42,13 @@ Bugtracker
 MinimumPerl
 Git::NextVersion
 
+NextRelease
+CheckChangesHasContent
+/;
+
+# AutoPrereqs should be before installtool (for BuildSelf), InstallGuide should be after it.
+
+my @plugins_late = qw/
 PodWeaver
 PkgVersion
 InstallGuide
@@ -49,9 +56,6 @@ InstallGuide
 PodSyntaxTests
 PodCoverageTests
 Test::Compile
-
-NextRelease
-CheckChangesHasContent
 /;
 
 my @bundles = qw/Git/;
@@ -70,8 +74,9 @@ sub configure {
 	$self->add_plugins(@basics);
 	my $tool = $tools{ $self->install_tool };
 	confess 'No known tool ' . $self->install_tool if not $tool;
+	$self->add_plugins(@plugins_early);
 	$self->add_plugins(@{$tool});
-	$self->add_plugins(@plugins);
+	$self->add_plugins(@plugins_late);
 	$self->add_bundle("\@$_") for @bundles;
 	return;
 }
@@ -91,7 +96,7 @@ Dist::Zilla::PluginBundle::LEONT - LEONT's dzil bundle
 
 =head1 VERSION
 
-version 0.007
+version 0.008
 
 =head1 DESCRIPTION
 
@@ -101,8 +106,6 @@ This is currently identical to the following setup:
     -bundle = @Basic
     -remove = MakeMaker
 
-	($install_tool dependent modules)
-
     [AutoPrereqs]
     [MetaJSON]
     [MetaResources]
@@ -111,19 +114,21 @@ This is currently identical to the following setup:
     [MinimumPerl]
     [Git::NextVersion]
     
+    [NextRelease]
+    [CheckChangesHasContent]
+
+    ($install_tool dependent modules)
+
     [PodWeaver]
     [PkgVersion]
     
     [PodSyntaxTests]
     [PodCoverageTests]
-    [Test::Kwalitee]
     [Test::Compile]
     
-    [NextRelease]
-    [CheckChangesHasContent]
     [@Git]
 
-The install_tool parameter can currently have 4 different values:
+The install_tool parameter can currently have 5 different values:
 
 =over 4
 
@@ -142,6 +147,10 @@ Use Module::Build with the ModuleBuild::Custom plugin
 =item * mbt
 
 Use Module::Build::Tiny
+
+=item * self
+
+Use the installing module to bootstrap itself
 
 =back
 

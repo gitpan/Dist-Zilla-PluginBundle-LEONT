@@ -1,5 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-LEONT
 
+0.008     2013-01-30 17:23:40 Europe/Amsterdam
+          Reordered plugins so that BuildSelf can work
+
 0.007     2013-01-10 17:45:44 Europe/Amsterdam
           Add Config::Slicer and PluginRemover bundle roles
           Added BuildSelf to install_tool options
