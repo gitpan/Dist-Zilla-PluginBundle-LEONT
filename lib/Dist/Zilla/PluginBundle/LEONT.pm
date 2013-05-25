@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::LEONT;
 {
-  $Dist::Zilla::PluginBundle::LEONT::VERSION = '0.008';
+  $Dist::Zilla::PluginBundle::LEONT::VERSION = '0.009';
 }
 use strict;
 use warnings;
@@ -85,9 +85,8 @@ sub configure {
 
 # ABSTRACT: LEONT's dzil bundle
 
-
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -96,7 +95,7 @@ Dist::Zilla::PluginBundle::LEONT - LEONT's dzil bundle
 
 =head1 VERSION
 
-version 0.008
+version 0.009
 
 =head1 DESCRIPTION
 
@@ -168,4 +167,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

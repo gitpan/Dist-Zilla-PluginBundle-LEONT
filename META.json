@@ -4,7 +4,7 @@
       "Leon Timmermans <leont@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -16,7 +16,7 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.30"
+            "Module::Build::Tiny" : "0.019"
          }
       },
       "develop" : {
@@ -30,6 +30,7 @@
          "requires" : {
             "Dist::Zilla::Plugin::AutoPrereqs" : "0",
             "Dist::Zilla::Plugin::Bugtracker" : "0",
+            "Dist::Zilla::Plugin::BuildSelf" : "0",
             "Dist::Zilla::Plugin::CheckChangesHasContent" : "0",
             "Dist::Zilla::Plugin::ConfirmRelease" : "4.300000",
             "Dist::Zilla::Plugin::ExecDir" : "4.300000",
@@ -45,6 +46,7 @@
             "Dist::Zilla::Plugin::MetaYAML" : "4.300000",
             "Dist::Zilla::Plugin::MinimumPerl" : "0",
             "Dist::Zilla::Plugin::ModuleBuild" : "4.300000",
+            "Dist::Zilla::Plugin::ModuleBuildTiny" : "0.004",
             "Dist::Zilla::Plugin::NextRelease" : "0",
             "Dist::Zilla::Plugin::PkgVersion" : "0",
             "Dist::Zilla::Plugin::PodCoverageTests" : "0",
@@ -84,9 +86,9 @@
       "repository" : {
          "type" : "git",
          "url" : "git://github.com/Leont/dist-zilla-pluginbundle-leont.git",
-         "web" : "http://github.com/Leont/dist-zilla-pluginbundle-leont"
+         "web" : "https://github.com/Leont/dist-zilla-pluginbundle-leont"
       }
    },
-   "version" : "0.008"
+   "version" : "0.009"
 }
 

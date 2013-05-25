@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::LEONT::PP;
 {
-  $Dist::Zilla::PluginBundle::LEONT::PP::VERSION = '0.008';
+  $Dist::Zilla::PluginBundle::LEONT::PP::VERSION = '0.009';
 }
 
 use Moose;
@@ -15,8 +15,8 @@ has '+install_tool' => (
 
 # ABSTRACT: Legacy plugin bundle for pure-perl modules
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -25,7 +25,7 @@ Dist::Zilla::PluginBundle::LEONT::PP - Legacy plugin bundle for pure-perl module
 
 =head1 VERSION
 
-version 0.008
+version 0.009
 
 =head1 AUTHOR
 
@@ -39,4 +39,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
