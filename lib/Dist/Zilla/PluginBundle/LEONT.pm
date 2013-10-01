@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::LEONT;
 {
-  $Dist::Zilla::PluginBundle::LEONT::VERSION = '0.009';
+  $Dist::Zilla::PluginBundle::LEONT::VERSION = '0.010';
 }
 use strict;
 use warnings;
@@ -18,7 +18,17 @@ has install_tool => (
 	},
 );
 
-my @basics = qw/
+has fast => (
+	is      => 'ro',
+	isa     => 'Bool',
+	lazy    => 1,
+	default => sub {
+		my $self = shift;
+		$self->payload->{fast};
+	},
+);
+
+my @plugins_early = (qw/
 GatherDir
 PruneCruft
 ManifestSkip
@@ -26,29 +36,31 @@ MetaYAML
 License
 Readme
 ExtraTests
-ExecDir
+/,
+[ ExecDir => { dir => 'script' } ],
+qw/
 ShareDir
 Manifest
-TestRelease
-ConfirmRelease
-UploadToCPAN
-/;
 
-my @plugins_early = qw/
 AutoPrereqs
 MetaJSON
 Repository
 Bugtracker
-MinimumPerl
 Git::NextVersion
+MetaProvides::Package
 
 NextRelease
 CheckChangesHasContent
-/;
+/);
 
 # AutoPrereqs should be before installtool (for BuildSelf), InstallGuide should be after it.
+# UploadToCPAN should be after @Git
 
 my @plugins_late = qw/
+TestRelease
+ConfirmRelease
+UploadToCPAN
+
 PodWeaver
 PkgVersion
 InstallGuide
@@ -71,13 +83,13 @@ my %tools = (
 sub configure {
 	my $self = shift;
 
-	$self->add_plugins(@basics);
 	my $tool = $tools{ $self->install_tool };
 	confess 'No known tool ' . $self->install_tool if not $tool;
 	$self->add_plugins(@plugins_early);
+	$self->add_plugins($self->fast ? 'MinimumPerlFast' : 'MinimumPerl');
 	$self->add_plugins(@{$tool});
-	$self->add_plugins(@plugins_late);
 	$self->add_bundle("\@$_") for @bundles;
+	$self->add_plugins(@plugins_late);
 	return;
 }
 
@@ -95,15 +107,28 @@ Dist::Zilla::PluginBundle::LEONT - LEONT's dzil bundle
 
 =head1 VERSION
 
-version 0.009
+version 0.010
 
 =head1 DESCRIPTION
 
 This is currently identical to the following setup:
 
-    [@Filter]
-    -bundle = @Basic
-    -remove = MakeMaker
+    ; @Basic except for MakeMaker and ExecDir
+    [GatherDir]
+    [PruneCruft]
+    [ManifestSkip]
+    [MetaYAML]
+    [License]
+    [Readme]
+    [ExtraTests]
+    [ShareDir]
+    [Manifest]
+    [TestRelease]
+    [ConfirmRelease]
+    [UploadToCPAN]
+
+    [ExecDir]
+    dir = script
 
     [AutoPrereqs]
     [MetaJSON]
@@ -117,6 +142,8 @@ This is currently identical to the following setup:
     [CheckChangesHasContent]
 
     ($install_tool dependent modules)
+
+    [InstallGuide]
 
     [PodWeaver]
     [PkgVersion]

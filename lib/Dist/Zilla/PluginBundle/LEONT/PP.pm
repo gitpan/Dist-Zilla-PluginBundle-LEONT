@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::LEONT::PP;
 {
-  $Dist::Zilla::PluginBundle::LEONT::PP::VERSION = '0.009';
+  $Dist::Zilla::PluginBundle::LEONT::PP::VERSION = '0.010';
 }
 
 use Moose;
@@ -25,7 +25,7 @@ Dist::Zilla::PluginBundle::LEONT::PP - Legacy plugin bundle for pure-perl module
 
 =head1 VERSION
 
-version 0.009
+version 0.010
 
 =head1 AUTHOR
 
