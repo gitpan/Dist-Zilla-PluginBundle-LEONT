@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::LEONT;
 {
-  $Dist::Zilla::PluginBundle::LEONT::VERSION = '0.010';
+  $Dist::Zilla::PluginBundle::LEONT::VERSION = '0.011';
 }
 use strict;
 use warnings;
@@ -74,6 +74,7 @@ my @bundles = qw/Git/;
 
 my %tools = (
 	eumm => [ 'MakeMaker' ],
+	eumc => [ 'MakeMaker::Custom' ],
 	mb   => [ 'ModuleBuild' ],
 	mbc  => [ qw/ModuleBuild::Custom Meta::Dynamic::Config/ ],
 	mbt  => [ 'ModuleBuildTiny' ],
@@ -101,13 +102,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Dist::Zilla::PluginBundle::LEONT - LEONT's dzil bundle
 
 =head1 VERSION
 
-version 0.010
+version 0.011
 
 =head1 DESCRIPTION
 

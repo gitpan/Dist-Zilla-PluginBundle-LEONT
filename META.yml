@@ -8,9 +8,9 @@ build_requires:
   IPC::Open3: 0
   Test::More: 0
 configure_requires:
-  Module::Build::Tiny: 0.027
+  Module::Build::Tiny: 0.030
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300038, CPAN::Meta::Converter version 2.120921'
+generated_by: 'Dist::Zilla version 5.005, CPAN::Meta::Converter version 2.132830'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -19,13 +19,13 @@ name: Dist-Zilla-PluginBundle-LEONT
 provides:
   Dist::Zilla::PluginBundle::LEONT:
     file: lib/Dist/Zilla/PluginBundle/LEONT.pm
-    version: 0.010
+    version: 0.011
   Dist::Zilla::PluginBundle::LEONT::PP:
     file: lib/Dist/Zilla/PluginBundle/LEONT/PP.pm
-    version: 0.010
+    version: 0.011
   Dist::Zilla::PluginBundle::LEONT::XS:
     file: lib/Dist/Zilla/PluginBundle/LEONT/XS.pm
-    version: 0.010
+    version: 0.011
 recommends:
   Dist::Zilla::Plugin::BuildSelf: 0
   Dist::Zilla::Plugin::Meta::Dynamic::Config: 0
@@ -74,4 +74,4 @@ requires:
 resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-PluginBundle-LEONT
   repository: git://github.com/Leont/dist-zilla-pluginbundle-leont.git
-version: 0.010
+version: 0.011
