@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::LEONT::XS;
 {
-  $Dist::Zilla::PluginBundle::LEONT::XS::VERSION = '0.011';
+  $Dist::Zilla::PluginBundle::LEONT::XS::VERSION = '0.012';
 }
 
 use Moose;
@@ -27,7 +27,7 @@ Dist::Zilla::PluginBundle::LEONT::XS - Legacy plugin bundle for xs modules
 
 =head1 VERSION
 
-version 0.011
+version 0.012
 
 =head1 AUTHOR
 

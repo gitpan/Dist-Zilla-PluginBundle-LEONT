@@ -19,13 +19,13 @@ name: Dist-Zilla-PluginBundle-LEONT
 provides:
   Dist::Zilla::PluginBundle::LEONT:
     file: lib/Dist/Zilla/PluginBundle/LEONT.pm
-    version: 0.011
+    version: 0.012
   Dist::Zilla::PluginBundle::LEONT::PP:
     file: lib/Dist/Zilla/PluginBundle/LEONT/PP.pm
-    version: 0.011
+    version: 0.012
   Dist::Zilla::PluginBundle::LEONT::XS:
     file: lib/Dist/Zilla/PluginBundle/LEONT/XS.pm
-    version: 0.011
+    version: 0.012
 recommends:
   Dist::Zilla::Plugin::BuildSelf: 0
   Dist::Zilla::Plugin::Meta::Dynamic::Config: 0
@@ -74,4 +74,4 @@ requires:
 resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-PluginBundle-LEONT
   repository: git://github.com/Leont/dist-zilla-pluginbundle-leont.git
-version: 0.011
+version: 0.012

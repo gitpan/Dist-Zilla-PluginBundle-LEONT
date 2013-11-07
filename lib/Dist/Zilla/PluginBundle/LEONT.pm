@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::LEONT;
 {
-  $Dist::Zilla::PluginBundle::LEONT::VERSION = '0.011';
+  $Dist::Zilla::PluginBundle::LEONT::VERSION = '0.012';
 }
 use strict;
 use warnings;
@@ -63,7 +63,6 @@ UploadToCPAN
 
 PodWeaver
 PkgVersion
-InstallGuide
 
 PodSyntaxTests
 PodCoverageTests
@@ -74,11 +73,11 @@ my @bundles = qw/Git/;
 
 my %tools = (
 	eumm => [ 'MakeMaker' ],
-	eumc => [ 'MakeMaker::Custom' ],
 	mb   => [ 'ModuleBuild' ],
 	mbc  => [ qw/ModuleBuild::Custom Meta::Dynamic::Config/ ],
 	mbt  => [ 'ModuleBuildTiny' ],
-	self => [ 'BuildSelf' ]
+	self => [ 'BuildSelf' ],
+	none => [],
 );
 
 sub configure {
@@ -91,6 +90,7 @@ sub configure {
 	$self->add_plugins(@{$tool});
 	$self->add_bundle("\@$_") for @bundles;
 	$self->add_plugins(@plugins_late);
+	$self->add_plugins('InstallGuide') if @{$tool};
 	return;
 }
 
@@ -110,7 +110,7 @@ Dist::Zilla::PluginBundle::LEONT - LEONT's dzil bundle
 
 =head1 VERSION
 
-version 0.011
+version 0.012
 
 =head1 DESCRIPTION
 

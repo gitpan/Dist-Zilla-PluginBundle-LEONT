@@ -87,15 +87,15 @@
    "provides" : {
       "Dist::Zilla::PluginBundle::LEONT" : {
          "file" : "lib/Dist/Zilla/PluginBundle/LEONT.pm",
-         "version" : "0.011"
+         "version" : "0.012"
       },
       "Dist::Zilla::PluginBundle::LEONT::PP" : {
          "file" : "lib/Dist/Zilla/PluginBundle/LEONT/PP.pm",
-         "version" : "0.011"
+         "version" : "0.012"
       },
       "Dist::Zilla::PluginBundle::LEONT::XS" : {
          "file" : "lib/Dist/Zilla/PluginBundle/LEONT/XS.pm",
-         "version" : "0.011"
+         "version" : "0.012"
       }
    },
    "release_status" : "stable",
@@ -110,6 +110,6 @@
          "web" : "https://github.com/Leont/dist-zilla-pluginbundle-leont"
       }
    },
-   "version" : "0.011"
+   "version" : "0.012"
 }
 
